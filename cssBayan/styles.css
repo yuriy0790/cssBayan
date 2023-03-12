@@ -41,6 +41,10 @@ ul {
   border-top: 0.15rem solid rgb(189, 176, 148);
 }
 
+.accordion-item:active {
+  opacity: 0.75;
+}
+
 .accordion-header {
   display: flex;
   flex-direction: column;
@@ -80,12 +84,12 @@ ul {
   display: none;
 }
 
-.accordion-checkbox:checked ~ .accordion-header .accordion-icon {
-  transform: rotate(135deg);
-}
-
 .accordion-checkbox:checked ~ .accordion-header {
   background-color: rgb(241, 243, 233);
+}
+
+.accordion-checkbox:checked ~ .accordion-header .accordion-icon {
+  transform: rotate(135deg);
 }
 
 .accordion-checkbox:checked ~ .accordion-header .accordion-img {
@@ -121,27 +125,6 @@ ul {
   .main-header {
     width: 80%;
   }
-
-  .accordion:hover {
-    color: black;
-  }
-
-  .accordion:hover .accordion-icon {
-    display: block;
-  }
-
-  .accordion-item:hover {
-    background-color: rgb(252, 252, 238);
-  }
-
-  .accordion-item:hover .accordion-icon {
-    transform: rotate(135deg);
-  }
-
-  .accordion-item:hover .accordion-img {
-    max-height: 24rem;
-    opacity: 1;
-  }
 }
 
 @media screen and (min-width: 1920px) {
@@ -158,8 +141,36 @@ ul {
   .main-header {
     width: 60%;
   }
+}
 
+@media (hover: hover) {
+  .accordion:hover {
+    color: black;
+  }
+
+  .accordion:hover .accordion-icon {
+    display: block;
+  }
+
+  .accordion-item:hover {
+    background-color: rgb(252, 252, 238);
+  }
+
+  .accordion-item:hover .accordion-icon {
+    transform: rotate(135deg);
+  }
+}
+
+@media (hover: hover) and (min-width: 820px) {
+  .accordion-item:hover .accordion-img {
+    max-height: 24rem;
+    opacity: 1;
+  }
+}
+
+@media (hover: hover) and (min-width: 1920px) {
   .accordion-item:hover .accordion-img {
     max-height: 32rem;
+    opacity: 1;
   }
 }
