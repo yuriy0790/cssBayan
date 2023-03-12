@@ -1,24 +1,44 @@
+html {
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+p,
+h1,
+h2 {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  padding: 0;
+}
+
+.container {
+  margin: 0 auto;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+.main-header {
+  font-size: 2.4rem;
+  font-weight: 900;
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+}
+
 .accordion {
   display: flex;
   flex-direction: column;
   list-style: none;
+  color: rgb(43, 43, 188);
+  width: 100%;
+  margin: 0 auto;
 }
 
 .accordion-item {
-  border: 1px solid red;
-}
-
-.accordion-item:hover {
-  background-color: rgb(234, 241, 207);
-}
-
-.accordion-item:hover .accordion-icon {
-  transform: rotate(45deg);
-}
-
-.accordion-item:hover .accordion-img {
-  display: block;
-  opacity: 1;
+  border-top: 0.15rem solid rgb(189, 176, 148);
 }
 
 .accordion-header {
@@ -26,6 +46,7 @@
   flex-direction: column;
   align-items: center;
   cursor: pointer;
+  overflow: hidden;
 }
 
 .accordion-title-wrap {
@@ -35,32 +56,24 @@
   width: 100%;
 }
 
+.accordion-title {
+  font-family: "Bebas Neue";
+  padding-top: 0.3rem;
+  padding-bottom: 0.3rem;
+}
+
 .accordion-icon {
-  width: 30px;
-  height: 30px;
+  width: 1.4rem;
+  height: 1.4rem;
   content: url("https://img.icons8.com/ios-filled/256/plus-math.png");
   transition: transform 0.3s ease;
 }
 
 .accordion-img {
-  display: none;
-  width: 100px;
-  height: auto;
-  padding: 10px;
-  animation: fadeIn 1s forwards;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    display: none;
-    transform: scaleY(0.8);
-  }
-  to {
-    opacity: 1;
-    display: block;
-    transform: scaleY(1);
-  }
+  max-height: 0;
+  opacity: 0;
+  max-width: 100%;
+  transition: max-height 0.8s ease, opacity 0.8s ease;
 }
 
 .accordion-checkbox {
@@ -68,9 +81,85 @@
 }
 
 .accordion-checkbox:checked ~ .accordion-header .accordion-icon {
-  transform: rotate(45deg);
+  transform: rotate(135deg);
+}
+
+.accordion-checkbox:checked ~ .accordion-header {
+  background-color: rgb(241, 243, 233);
 }
 
 .accordion-checkbox:checked ~ .accordion-header .accordion-img {
-  display: block;
+  max-height: 14rem;
+  opacity: 1;
+}
+
+.accordion-checkbox:checked ~ .accordion-header .accordion-title {
+  color: black;
+}
+
+@media screen and (min-width: 320px) {
+  .accordion-title {
+    font-size: 1.5rem;
+  }
+
+  .accordion-checkbox:checked ~ .accordion-header .accordion-img {
+    max-height: 20rem;
+  }
+}
+
+@media screen and (min-width: 820px) {
+  .accordion-icon {
+    display: none;
+  }
+  .accordion-title {
+    font-size: 1.8rem;
+  }
+  .accordion-checkbox:checked ~ .accordion-header .accordion-img {
+    max-height: 24rem;
+  }
+  .accordion,
+  .main-header {
+    width: 80%;
+  }
+
+  .accordion:hover {
+    color: black;
+  }
+
+  .accordion:hover .accordion-icon {
+    display: block;
+  }
+
+  .accordion-item:hover {
+    background-color: rgb(252, 252, 238);
+  }
+
+  .accordion-item:hover .accordion-icon {
+    transform: rotate(135deg);
+  }
+
+  .accordion-item:hover .accordion-img {
+    max-height: 24rem;
+    opacity: 1;
+  }
+}
+
+@media screen and (min-width: 1920px) {
+  .accordion-icon {
+    display: none;
+  }
+  .accordion-title {
+    font-size: 2rem;
+  }
+  .accordion-checkbox:checked ~ .accordion-header .accordion-img {
+    max-height: 32rem;
+  }
+  .accordion,
+  .main-header {
+    width: 60%;
+  }
+
+  .accordion-item:hover .accordion-img {
+    max-height: 32rem;
+  }
 }
